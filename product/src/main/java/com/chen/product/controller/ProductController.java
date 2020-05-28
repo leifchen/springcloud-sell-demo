@@ -1,13 +1,13 @@
 package com.chen.product.controller;
 
-import com.chen.product.common.ProductInfoOutput;
-import com.chen.product.common.Result;
+import com.chen.common.Result;
 import com.chen.product.model.ProductCategory;
 import com.chen.product.model.ProductInfo;
 import com.chen.product.service.ProductCategoryService;
 import com.chen.product.service.ProductService;
 import com.chen.product.vo.ProductInfoVO;
 import com.chen.product.vo.ProductVO;
+import com.chen.vo.ProductInfoOutput;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

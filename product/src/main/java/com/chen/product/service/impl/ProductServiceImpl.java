@@ -1,10 +1,10 @@
 package com.chen.product.service.impl;
 
-import com.chen.product.common.ProductInfoOutput;
 import com.chen.product.enums.ProductStatusEnum;
 import com.chen.product.model.ProductInfo;
 import com.chen.product.repository.ProductInfoRepository;
 import com.chen.product.service.ProductService;
+import com.chen.vo.ProductInfoOutput;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

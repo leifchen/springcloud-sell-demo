@@ -1,7 +1,7 @@
 package com.chen.product.service;
 
-import com.chen.product.common.ProductInfoOutput;
 import com.chen.product.model.ProductInfo;
+import com.chen.vo.ProductInfoOutput;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
