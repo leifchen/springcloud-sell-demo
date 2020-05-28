@@ -1,0 +1,27 @@
+package com.chen.product.enums;
+
+import lombok.Getter;
+
+/**
+ * 商品上下架状态
+ * <p>
+ * @Author LeifChen
+ * @Date 2020-05-26
+ */
+@Getter
+public enum ProductStatusEnum {
+    /**
+     * 商品状态
+     */
+    UP(0, "在架"),
+    DOWN(1, "下架"),
+    ;
+
+    private Integer code;
+    private String message;
+
+    ProductStatusEnum(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+}
