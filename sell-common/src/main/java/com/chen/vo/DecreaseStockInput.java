@@ -1,4 +1,4 @@
-package com.chen.product.common;
+package com.chen.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

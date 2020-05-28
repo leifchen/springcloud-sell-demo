@@ -1,4 +1,4 @@
-package com.chen.product.util;
+package com.chen.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

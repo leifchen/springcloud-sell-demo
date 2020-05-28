@@ -1,4 +1,4 @@
-package com.chen.product.common;
+package com.chen.common;
 
 import lombok.Data;
 
