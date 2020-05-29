@@ -1,0 +1,17 @@
+server:
+  port: 18002
+spring:
+  application:
+    name: order
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/db_springcloud?useUnicode=true&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:28761/eureka/
+  instance:
+    prefer-ip-address: true
+
