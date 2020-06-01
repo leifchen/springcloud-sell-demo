@@ -1,6 +1,7 @@
 package com.chen.product.service;
 
 import com.chen.product.model.ProductInfo;
+import com.chen.vo.DecreaseStockInput;
 import com.chen.vo.ProductInfoOutput;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,5 +37,12 @@ public class ProductServiceTest {
     public void findList() {
         List<ProductInfoOutput> list = productService.findList(Arrays.asList("157875196366160022", "157875227953464068"));
         assertTrue(list.size() > 0);
+    }
+
+    @Test
+    public void decreaseStock() {
+        DecreaseStockInput decreaseStockInput1 = new DecreaseStockInput("157875196366160022", 1);
+        DecreaseStockInput decreaseStockInput2 = new DecreaseStockInput("157875227953464068", 1);
+        productService.decreaseStock(Arrays.asList(decreaseStockInput1, decreaseStockInput2));
     }
 }

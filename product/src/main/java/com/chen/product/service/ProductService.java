@@ -1,6 +1,7 @@
 package com.chen.product.service;
 
 import com.chen.product.model.ProductInfo;
+import com.chen.vo.DecreaseStockInput;
 import com.chen.vo.ProductInfoOutput;
 
 import java.util.List;
@@ -24,4 +25,10 @@ public interface ProductService {
      * @return
      */
     List<ProductInfoOutput> findList(List<String> productIdList);
+
+    /**
+     * 扣库存
+     * @param decreaseStockInputList
+     */
+    void decreaseStock(List<DecreaseStockInput> decreaseStockInputList);
 }

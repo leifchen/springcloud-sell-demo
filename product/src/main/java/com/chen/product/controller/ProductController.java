@@ -7,6 +7,7 @@ import com.chen.product.service.ProductCategoryService;
 import com.chen.product.service.ProductService;
 import com.chen.product.vo.ProductInfoVO;
 import com.chen.product.vo.ProductVO;
+import com.chen.vo.DecreaseStockInput;
 import com.chen.vo.ProductInfoOutput;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -94,5 +95,14 @@ public class ProductController {
             Thread.currentThread().interrupt();
         }
         return productService.findList(productIdList);
+    }
+
+    /**
+     * 扣库采
+     * @param decreaseStockInputList
+     */
+    @PostMapping("/decreaseStock")
+    public void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList) {
+        productService.decreaseStock(decreaseStockInputList);
     }
 }

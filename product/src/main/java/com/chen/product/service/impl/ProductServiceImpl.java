@@ -1,15 +1,21 @@
 package com.chen.product.service.impl;
 
 import com.chen.product.enums.ProductStatusEnum;
+import com.chen.product.enums.ResultEnum;
+import com.chen.product.exception.ProductException;
 import com.chen.product.model.ProductInfo;
 import com.chen.product.repository.ProductInfoRepository;
 import com.chen.product.service.ProductService;
+import com.chen.vo.DecreaseStockInput;
 import com.chen.vo.ProductInfoOutput;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -38,5 +44,34 @@ public class ProductServiceImpl implements ProductService {
                     return output;
                 })
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void decreaseStock(List<DecreaseStockInput> decreaseStockInputList) {
+        decreaseStockProcess(decreaseStockInputList);
+    }
+
+    @Transactional
+    public List<ProductInfo> decreaseStockProcess(List<DecreaseStockInput> decreaseStockInputList) {
+        List<ProductInfo> productInfoList = new ArrayList<>();
+        for (DecreaseStockInput decreaseStockInput: decreaseStockInputList) {
+            Optional<ProductInfo> productInfoOptional = productInfoRepository.findById(decreaseStockInput.getProductId());
+            // 判断商品是否存在
+            if (!productInfoOptional.isPresent()){
+                throw new ProductException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+
+            ProductInfo productInfo = productInfoOptional.get();
+            // 库存是否足够
+            Integer result = productInfo.getProductStock() - decreaseStockInput.getProductQuantity();
+            if (result < 0) {
+                throw new ProductException(ResultEnum.PRODUCT_STOCK_ERROR);
+            }
+
+            productInfo.setProductStock(result);
+            productInfoRepository.save(productInfo);
+            productInfoList.add(productInfo);
+        }
+        return productInfoList;
     }
 }
