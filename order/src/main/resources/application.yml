@@ -14,4 +14,13 @@ eureka:
       defaultZone: http://localhost:28761/eureka/
   instance:
     prefer-ip-address: true
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 60000
 
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
