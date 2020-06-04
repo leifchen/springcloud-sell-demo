@@ -17,3 +17,6 @@ feign:
 logging:
   level:
     org.springframework.cloud.openfeign: debug
+test:
+  name: LeifChen
+  age: 18
