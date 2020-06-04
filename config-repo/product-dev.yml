@@ -1,6 +1,8 @@
 server:
   port: 18001
 spring:
+  application:
+    name: product
   datasource:
     username: root
     password: 123456
