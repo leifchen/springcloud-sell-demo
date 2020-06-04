@@ -19,4 +19,5 @@ logging:
     org.springframework.cloud.openfeign: debug
 test:
   name: LeifChen
-  age: 2020
+  age: 20
+  
