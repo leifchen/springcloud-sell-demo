@@ -6,6 +6,14 @@ spring:
         service-id: CONFIG
       name: order
       profile: dev
+  rabbitmq:
+    host: 192.168.33.100
+    port: 5672
+    username: guest
+    password: guest
+  devtools:
+    restart:
+      log-condition-evaluation-delta: false
 eureka:
   client:
     service-url:
