@@ -15,7 +15,21 @@ spring:
           username:
           # git仓库的密码
           password:
+          basedir: /config-repo/tmp/
+  rabbitmq:
+    host: 192.168.33.100
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:28761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+logging:
+  level:
+    org.springframework.cloud.bus: debug
