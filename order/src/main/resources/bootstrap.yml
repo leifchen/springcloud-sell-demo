@@ -6,6 +6,16 @@ spring:
         service-id: CONFIG
       name: order
       profile: dev
+    stream:
+      bindings:
+        input:
+          destination: myMessage
+          group: order-group
+          content-type: application/json
+        output:
+          destination: myMessage
+          group: order-group
+          content-type: application/json
   rabbitmq:
     host: 192.168.33.100
     port: 5672
