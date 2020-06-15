@@ -3,6 +3,7 @@ package com.chen.apigateway.filter;
 import com.chen.apigateway.exception.RateLimitException;
 import com.google.common.util.concurrent.RateLimiter;
 import com.netflix.zuul.ZuulFilter;
+import org.springframework.stereotype.Component;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.SERVLET_DETECTION_FILTER_ORDER;
@@ -13,6 +14,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
  * @Author LeifChen
  * @Date 2020-06-15
  */
+@Component
 public class RateLimitFilter extends ZuulFilter {
 
     private static final RateLimiter RATE_LIMITER = RateLimiter.create(100);
