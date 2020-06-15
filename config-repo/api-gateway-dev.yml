@@ -1,0 +1,19 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: api-gateway
+zuul:
+  #全部服务忽略敏感头(全部服务都可以传递cookie)
+  sensitive-headers:
+  #排除某些路由
+  ignored-patterns:
+    - /**/product/listForOrder
+ribbon:
+  ReadTimeout: 5000
+  SocketTimeout: 5000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
