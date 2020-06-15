@@ -41,15 +41,14 @@ public class JsonUtils {
      * @param classType
      * @return
      */
-    public static Object fromJson(String string, Class classType) {
+    public static <T> Object fromJson(String string, Class<T> classType) {
         try {
             return objectMapper.readValue(string, classType);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
         }
         return null;
     }
-
 
     /**
      * json转复杂对象
@@ -57,11 +56,11 @@ public class JsonUtils {
      * @param typeReference
      * @return
      */
-    public static Object fromJson(String string, TypeReference typeReference) {
+    public static <T> Object fromJson(String string, TypeReference<T> typeReference) {
         try {
             return objectMapper.readValue(string, typeReference);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
         }
         return null;
     }
