@@ -1,10 +1,13 @@
 package com.chen.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.io.IOException;
 
 /**
  * JSON工具类
@@ -28,6 +31,37 @@ public class JsonUtils {
             return objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
             log.error(e.getMessage(), e);
+        }
+        return null;
+    }
+
+    /**
+     * json转对象
+     * @param string
+     * @param classType
+     * @return
+     */
+    public static Object fromJson(String string, Class classType) {
+        try {
+            return objectMapper.readValue(string, classType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    /**
+     * json转复杂对象
+     * @param string
+     * @param typeReference
+     * @return
+     */
+    public static Object fromJson(String string, TypeReference typeReference) {
+        try {
+            return objectMapper.readValue(string, typeReference);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return null;
     }
