@@ -16,11 +16,6 @@ spring:
           destination: myMessage
           group: order-group
           content-type: application/json
-  rabbitmq:
-    host: 192.168.33.100
-    port: 5672
-    username: guest
-    password: guest
   devtools:
     restart:
       log-condition-evaluation-delta: false

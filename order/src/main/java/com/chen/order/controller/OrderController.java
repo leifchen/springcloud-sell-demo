@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,7 +57,12 @@ public class OrderController {
             throw new OrderException(ResultEnum.CART_EMPTY);
         }
 
-        OrderDTO result = orderService.create(orderDTO);
+        OrderDTO result = null;
+        try {
+            result = orderService.create(orderDTO);
+        } catch (NoSuchAlgorithmException e) {
+            log.error(e.getMessage(), e);
+        }
 
         Map<String, String> map = new HashMap<>(4);
         map.put("orderId", result.getOrderId());

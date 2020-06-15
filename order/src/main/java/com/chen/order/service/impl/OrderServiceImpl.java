@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +40,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional(rollbackOn = Exception.class)
-    public OrderDTO create(OrderDTO orderDTO) {
+    public OrderDTO create(OrderDTO orderDTO) throws NoSuchAlgorithmException {
         String orderId = KeyUtils.genUniqueKey();
 
         // 查询商品信息(调用商品服务)

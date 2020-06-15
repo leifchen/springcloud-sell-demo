@@ -3,6 +3,8 @@ package com.chen.order.service;
 
 import com.chen.order.dto.OrderDTO;
 
+import java.security.NoSuchAlgorithmException;
+
 /**
  * 订单Service接口
  * <p>
@@ -16,5 +18,5 @@ public interface OrderService {
      * @param orderDTO
      * @return
      */
-    OrderDTO create(OrderDTO orderDTO);
+    OrderDTO create(OrderDTO orderDTO) throws NoSuchAlgorithmException;
 }
