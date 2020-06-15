@@ -6,6 +6,9 @@ spring:
         service-id: CONFIG
       name: product
       profile: dev
+  devtools:
+    restart:
+      log-condition-evaluation-delta: false
 eureka:
   client:
     service-url:
