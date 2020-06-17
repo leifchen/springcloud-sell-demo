@@ -1,8 +1,7 @@
 package com.chen.order;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
@@ -12,8 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @Date 2020-05-29
  */
 @EnableFeignClients(basePackages = "com.chen.product.client")
-@EnableEurekaClient
-@SpringBootApplication
+@SpringCloudApplication
 public class OrderApp {
 
     public static void main(String[] args) {

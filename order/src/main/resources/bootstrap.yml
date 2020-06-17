@@ -16,12 +16,16 @@ spring:
           destination: myMessage
           group: order-group
           content-type: application/json
-  devtools:
-    restart:
-      log-condition-evaluation-delta: false
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:28761/eureka/
   instance:
     prefer-ip-address: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
