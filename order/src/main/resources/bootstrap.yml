@@ -22,10 +22,3 @@ eureka:
       defaultZone: http://localhost:28761/eureka/
   instance:
     prefer-ip-address: true
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 3000
